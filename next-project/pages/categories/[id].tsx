@@ -11,10 +11,9 @@ const CategoryMeals: NextPage<{meals: Meal[]}> = ({meals}) => {
 
     return (
         <div>
-            <h1 className="text-4xl text-center mb-3">{id} Meals</h1>
-            {/* create a back button */}
+            <div className='container mx-auto mt-2'>
+                <h1 className="text-4xl text-center mb-3">{id} Meals</h1>
 
-            <div className='container mx-auto'>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                     {meals && meals.map(meal => <MealCard key={meal.idMeal} meal={meal}/>)}
                 </div>

@@ -16,7 +16,7 @@ const CategoryCard: NextPage<{category: Category}> = ({category}) => {
             <h5 className="text-2xl text-center font-bold tracking-tight cursor-pointer mt-3">{category.strCategory}</h5>
         </Link>
 
-        <div className="flex sm:justify-center md:justify-end items-center m-3">
+        <div className="flex xs:justify-center sm:justify-center md:justify-end items-center m-3">
             <Link href={`/categories/${category.strCategory}`}>
             <button type="button" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 View Meals

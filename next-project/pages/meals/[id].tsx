@@ -34,7 +34,7 @@ const RecipeDetailView:NextPage<{meal: MealDetails}> = ({meal}) => {
                             <tbody>
                                 {meal.ingredients.map(ingredient => {
                                     return (
-                                        <tr className="bg-white" key={ingredient.id}>
+                                        <tr className="bg-white mx-auto" key={ingredient.id}>
                                             <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                                                 {ingredient.name}
                                             </th>
