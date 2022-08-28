@@ -6,19 +6,57 @@ import { GetCategoryResults, GetCategoryMealsResults, MealDetails } from "../../
 
 const RecipeDetailView:NextPage<{meal: MealDetails}> = ({meal}) => {
     return (
-      <div>
-        {/* header with the meal title and back button */}
-            {meal.strMeal}
-        {/* image on the left side and ingr on the right*/}
-        <Image src={meal.strMealThumb} width='400' height='500' alt={meal.strMeal}/>
-        {meal.ingredients.map(ingredient => {
-            return (<p key={ingredient.id}>{ingredient.name} {ingredient.measure}</p>)
-        })}
+        <div className="container mx-auto card pt-5">
+            <div className="flex flex-col p-6 bg-white rounded-lg border border-gray-200 shadow-md">
+                <div>
+                    {/* header with the meal title and back button */}
+                    <p className="text-3xl font-bold mb-4">{meal.strMeal}</p>
+                </div>
 
-        {meal.strInstructions}
-      </div>
+                <div className="flex flex-row">
+                    {/* image on the left side and ingr on the right*/}
+                    <Image src={meal.strMealThumb} width='400' height='500' alt={meal.strMeal} className='grow-0'/>
+
+
+                    <div className="overflow-x-auto relative">
+                        <table className="text-sm text-left text-gray-500">
+                            <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr>
+                                    <th scope="col" className="py-3 px-6 rounded-l-lg">
+                                        Ingredient
+                                    </th>
+                                    <th scope="col" className="py-3 px-6">
+                                        Measure
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {meal.ingredients.map(ingredient => {
+                                    return (
+                                        <tr className="bg-white" key={ingredient.id}>
+                                            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                                {ingredient.name}
+                                            </th>
+
+                                            <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                                {ingredient.measure}
+                                            </th>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    {meal.strInstructions}
+                </div>
+            </div>
+        </div>
     );
-  }
+}
 
 export const getStaticPaths: GetStaticPaths = async() => {
     const categoriesRes = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
