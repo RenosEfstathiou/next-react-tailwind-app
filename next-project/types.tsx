@@ -18,3 +18,25 @@ export interface GetCategoryResults {
 export interface GetCategoryMealsResults {
     meals: Meal[]
 }
+
+export interface Ingredients {
+    id: number
+    name: string
+    measure: string
+}
+
+export interface MealDetails {
+    idMeal: string,
+    strMeal: string,
+    strDrinkAlternate: string,
+    strCategory: string,
+    strArea: string,
+    strInstructions: string,
+    strMealThumb: string,
+    strTags: string,
+    strYoutube: string,
+    strSource: string,
+    strImageSource: string | null
+    strCreativeCommonsConfirmed: string | null,
+    ingredients: Array<Ingredients>
+};

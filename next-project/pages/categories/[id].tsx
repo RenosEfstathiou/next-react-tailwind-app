@@ -30,8 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const {meals}: GetCategoryMealsResults = await res.json();
 
-
     return { props: { meals } };
-    }
+}
 
 export default CategoryMeals;
