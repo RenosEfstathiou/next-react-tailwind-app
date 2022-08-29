@@ -6,7 +6,7 @@ import {Category, GetCategoryResults} from '../types';
 
 
 const Header = () => {
-  const [categories, setCategories]= useState([]);
+  const [categories, setCategories]= useState<Array<Category>>([]);
 
   const fetchCategories = useCallback(async () => {
     const res = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
@@ -22,11 +22,8 @@ const Header = () => {
 
     if (!categoriesFromStorage) {
       fetchCategories();
-      console.log('fetched');
     } else {
-      categoriesFromStorage = JSON.parse(categoriesFromStorage);
-
-      setCategories(categoriesFromStorage);
+      setCategories(JSON.parse(categoriesFromStorage));
     }
 
   }, [fetchCategories])
