@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback} from "react";
 
+import Head from 'next/head';
 import Link from "next/link";
 
 import {Category, GetCategoryResults} from '../types';
@@ -29,6 +30,12 @@ const Header = () => {
   }, [fetchCategories])
   return (
     <>
+      <Head>
+        <title>Recipe</title>
+        <meta name="description" content="A recipe finding app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <nav className='px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700'>
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <Link href='/'>
