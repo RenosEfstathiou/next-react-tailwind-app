@@ -15,7 +15,7 @@ const Home: NextPage<{categories: Category[]}> = ({categories}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='container mx-auto'>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-10">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mt-10 mb-5">
           {categories.map(category => {
             return (
               <CategoryCard key={category.idCategory} category={category}/>

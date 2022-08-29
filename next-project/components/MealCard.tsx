@@ -1,10 +1,9 @@
-import { NextPage } from "next"
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Meal } from "../types";
 
-const MealCard: NextPage<{meal: Meal}> = ({meal}) => {
+const MealCard = ({meal}: {meal: Meal}) => {
   return (
     <div className="flex flex-col justify-between max-w-sm bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
         <div>
@@ -24,7 +23,7 @@ const MealCard: NextPage<{meal: Meal}> = ({meal}) => {
             <p className="text-2xl text-center font-bold tracking-tight cursor-pointer mt-3 p-2">{meal.strMeal}</p>
         </Link>
 
-        <div className="flex justify-center md:justify-end items-center m-3">
+        <div className="flex justify-center md:justify-end m-3">
             <Link href={`/meals/${meal.idMeal}`}>
                 <button type="button" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     View Recipe

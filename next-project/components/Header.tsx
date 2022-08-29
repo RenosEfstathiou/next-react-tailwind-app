@@ -1,12 +1,37 @@
-import { NextPage } from "next";
-import Link from "next/link";
-import Head from 'next/head';
-import Script from 'next/script'
+import { useEffect, useState, useCallback} from "react";
 
-const Header: NextPage = () => {
+import Link from "next/link";
+
+import {Category, GetCategoryResults} from '../types';
+
+
+const Header = () => {
+  const [categories, setCategories]= useState([]);
+
+  const fetchCategories = useCallback(async () => {
+    const res = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+
+    const {categories}: GetCategoryResults = await res.json();
+
+    setCategories(categories);
+    window.localStorage.setItem('categories', JSON.stringify(categories));
+  }, []);
+
+  useEffect(()=> {
+    let categoriesFromStorage = window.localStorage.getItem('categories');
+
+    if (!categoriesFromStorage) {
+      fetchCategories();
+      console.log('fetched');
+    } else {
+      categoriesFromStorage = JSON.parse(categoriesFromStorage);
+
+      setCategories(categoriesFromStorage);
+    }
+
+  }, [fetchCategories])
   return (
     <>
-     <Script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"/>
       <nav className='px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700'>
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <Link href='/'>
@@ -71,39 +96,18 @@ const Header: NextPage = () => {
                   className='hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600'
                 >
                   <ul className='py-1 text-sm text-gray-700 dark:text-gray-400' aria-labelledby='dropdownLargeButton'>
-                    <li>
-                      <a
-                        href='#'
-                        className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-                      >
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='#'
-                        className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-                      >
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='#'
-                        className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
-                      >
-                        Earnings
-                      </a>
-                    </li>
+                    {categories && categories.map(category => {
+                      return (
+                        <li key={category.idCategory}>
+                          <Link
+                            href={`/categories/${category.strCategory}`}
+                          >
+                            <span className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>{category.strCategory}</span>
+                          </Link>
+                        </li>
+                      )
+                    })}
                   </ul>
-                  <div className='py-1'>
-                    <a
-                      href='#'
-                      className='block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white'
-                    >
-                      Sign out
-                    </a>
-                  </div>
                 </div>
               </li>
             </ul>
