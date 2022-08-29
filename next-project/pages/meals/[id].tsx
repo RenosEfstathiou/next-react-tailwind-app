@@ -17,7 +17,7 @@ const RecipeDetailView:NextPage<{meal: MealDetails}> = ({meal}) => {
                     {meal.ingredients.map(ingredient => {
                         return (
                             <li key={ingredient.id} className="flex items-center">
-                                {ingredient.name} - {ingredient.measure}
+                                {ingredient.name}  {ingredient.measure}
                             </li>
                         )
                     })}
