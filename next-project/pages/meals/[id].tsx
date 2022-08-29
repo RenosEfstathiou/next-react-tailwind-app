@@ -6,8 +6,8 @@ import { GetCategoryResults, GetCategoryMealsResults, MealDetails } from "../../
 
 const RecipeDetailView:NextPage<{meal: MealDetails}> = ({meal}) => {
     return (
-        <div className="max-w-[80%] bg-white rounded-lg border border-gray-200 shadow-lg mx-auto mt-5">
-            <p className="text-2xl font-bold text-center my-4">{meal.strMeal}</p>
+        <div className="max-w-[80%] lg:max-w-[50%] bg-white rounded-lg border border-gray-200 shadow-lg mx-auto mt-5">
+            <p className="text-2xl font-bold text-center my-4 px-2">{meal.strMeal}</p>
 
             <Image src={meal.strMealThumb} alt={`${meal.strMeal}_thumb`} width='400' height='350' layout="responsive" />
 
@@ -23,7 +23,7 @@ const RecipeDetailView:NextPage<{meal: MealDetails}> = ({meal}) => {
                     })}
                 </ol>
 
-                <h5 className="mb-2 text-2xl font-bold tracking-tight">Instructions:</h5>
+                <h5 className="mb-2 text-2xl font-bold tracking-tight mt-5">Instructions:</h5>
                 <p className="mb-3 font-normal">{meal.strInstructions}</p>
             </div>
         </div>
