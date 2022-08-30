@@ -17,7 +17,6 @@ import {
 
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 
-
 const Header: React.FC = () => {
   const [categories, setCategories] = useState<Array<Category>>([]);
 
@@ -70,12 +69,12 @@ const Header: React.FC = () => {
               </label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <MagnifyingGlassIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
                 </div>
                 <input
                   id="search"
                   name="search"
-                  className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-900 sm:text-sm"
+                  className="block w-full rounded-md border border-indigo-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-indigo-500 focus:border-indigo-500 focus:placeholder-indigo-400 focus:outline-none focus:ring-1 focus:ring-indigo-900 sm:text-sm"
                   placeholder="Search meal..."
                   type="search"
                 />
@@ -84,7 +83,7 @@ const Header: React.FC = () => {
           </div>
 
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-indigo-400 hover:bg-indigo-100 hover:text-indigo-500 focus:outline-none">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -96,15 +95,15 @@ const Header: React.FC = () => {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? 'text-gray-500' : 'text-gray-900',
-                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-500 focus:outline-none'
+                      open ? 'text-indigo-500' : 'text-indigo-900',
+                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-indigo-500 focus:outline-none'
                     )}
                   >
                     <span>Categories</span>
                     <ChevronDownIcon
                       className={classNames(
-                        open ? 'text-gray-500' : 'text-gray-900',
-                        'ml-2 h-5 w-5 group-hover:text-gray-500'
+                        open ? 'text-indigo-500' : 'text-indigo-900',
+                        'ml-2 h-5 w-5 group-hover:text-indigo-500'
                       )}
                       aria-hidden="true"
                     />
@@ -127,12 +126,12 @@ const Header: React.FC = () => {
                               key={category.idCategory}
                               href={`/categories/${category.strCategory}`}
                             >
-                              <div className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50 cursor-pointer">
+                              <div className="-m-3 flex items-center rounded-lg p-3 hover:bg-indigo-50 cursor-pointer">
                                 <div className="h-[80px] w-[80px] items-center justify-center rounded-md text-white shadow">
                                   <Image src={category.strCategoryThumb} width={100} height={100} layout="responsive" objectFit="contain" alt={`${category.strCategory}_thumb`} />
                                 </div>
                                 <div className="ml-4">
-                                  <p className="text-base text-2xl font-bold text-gray-900">{category.strCategory}</p>
+                                  <p className="text-base text-2xl font-bold text-indigo-900">{category.strCategory}</p>
                                 </div>
                               </div>
                             </Link>
@@ -157,7 +156,7 @@ const Header: React.FC = () => {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel focus className="absolute inset-x-0 z-10 top-0 origin-top-right transform p-2 transition md:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="divide-y-2 divide-indigo-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <Link
@@ -166,7 +165,7 @@ const Header: React.FC = () => {
                     <Image src='/recipe.png' width={50} height={50} className="cursor-pointer"></Image>
                   </Link>
                   <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-indigo-400 hover:bg-indigo-100 hover:text-indigo-500 focus:outline-none">
                       <span className="sr-only">Close menu</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -180,11 +179,11 @@ const Header: React.FC = () => {
                         href={`/categories/${category.strCategory}`}
 
                       >
-                        <div className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
+                        <div className="-m-3 flex items-center rounded-lg p-3 hover:bg-indigo-50">
                           <div className="h-24 w-24 flex-shrink-0 items-center justify-center rounded-md text-white">
                             <Image src={category.strCategoryThumb} width={24} height={24} layout="responsive" objectFit="cover" alt={`${category.strCategory}_thumb`} />
                           </div>
-                          <div className="ml-4 text-base font-medium text-gray-900">{category.strCategory}</div>
+                          <div className="ml-4 text-base font-medium text-indigo-900">{category.strCategory}</div>
                         </div>
                       </Link>
                     ))}
