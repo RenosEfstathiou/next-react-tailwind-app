@@ -15,10 +15,10 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 
 
-const Header = () => {
+const Header: React.FC = () => {
   const [categories, setCategories] = useState<Array<Category>>([]);
 
   const fetchCategories = useCallback(async () => {
@@ -31,7 +31,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    let categoriesFromStorage = window.localStorage.getItem('categories');
+    let categoriesFromStorage: string | null = window.localStorage.getItem('categories');
 
     if (!categoriesFromStorage) {
       fetchCategories();
@@ -63,6 +63,26 @@ const Header = () => {
             </Link>
           </div>
 
+          <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
+            <div className="w-full max-w-lg lg:max-w-xs">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                </div>
+                <input
+                  id="search"
+                  name="search"
+                  className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-900 sm:text-sm"
+                  placeholder="Search meal..."
+                  type="search"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
               <span className="sr-only">Open menu</span>
@@ -76,14 +96,14 @@ const Header = () => {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? 'text-gray-900' : 'text-gray-500',
-                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none'
+                      open ? 'text-gray-500' : 'text-gray-900',
+                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-500 focus:outline-none'
                     )}
                   >
                     <span>Categories</span>
                     <ChevronDownIcon
                       className={classNames(
-                        open ? 'text-gray-600' : 'text-gray-400',
+                        open ? 'text-gray-500' : 'text-gray-900',
                         'ml-2 h-5 w-5 group-hover:text-gray-500'
                       )}
                       aria-hidden="true"
@@ -109,7 +129,7 @@ const Header = () => {
                             >
                               <div className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50 cursor-pointer">
                                 <div className="h-[80px] w-[80px] items-center justify-center rounded-md text-white shadow">
-                                  <Image src={category.strCategoryThumb} width={100} height={100} layout="responsive" objectFit="cover" alt={`${category.strCategory}_thumb`} />
+                                  <Image src={category.strCategoryThumb} width={100} height={100} layout="responsive" objectFit="contain" alt={`${category.strCategory}_thumb`} />
                                 </div>
                                 <div className="ml-4">
                                   <p className="text-base text-2xl font-bold text-gray-900">{category.strCategory}</p>
