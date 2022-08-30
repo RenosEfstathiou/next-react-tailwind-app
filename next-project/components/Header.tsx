@@ -101,7 +101,7 @@ const Header = () => {
                   >
                     <Popover.Panel className="absolute z-10 -ml-4 mt-8 w-screen max-w-md transform lg:left-1/2 lg:ml-0 lg:max-w-xl lg:-translate-x-[32.5rem] md:left-1/2 md:ml-0 md:max-w-xl md:-translate-x-[32.5rem]">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-y-scroll h-[30rem]">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
+                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 md:grid-cols-2 lg:grid-cols-2">
                           {categories.map((category) => (
                             <Link
                               key={category.idCategory}
@@ -153,7 +153,7 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <nav className="grid grid-cols-1 gap-7 overflow-hidden overflow-y-scroll h-[86vh]">
+                  <nav className="grid grid-cols-1 gap-7 overflow-hidden overflow-y-scroll h-[80vh]">
                     {categories.map((category) => (
                       <Link
                         key={category.idCategory}
