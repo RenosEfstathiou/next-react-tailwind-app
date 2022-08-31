@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 
-const ForOhFor = () => {
+const ForOhFor: React.FC = () => {
     return (
         <div className="flex min-h-[90vh] flex-col bg-white">
             <div className="flex flex-grow flex-col">
@@ -25,8 +26,8 @@ const ForOhFor = () => {
                     </div>
                 </main>
             </div>
-            <div className="hidden lg:absolute lg:inset-y-0 lg:right-0 lg:block lg:w-1/2">
 
+            <div className="hidden lg:absolute lg:inset-y-0 lg:right-0 lg:block lg:w-1/2">
                 <img
                     className="absolute inset-0 h-full w-full object-cover"
                     src="https://images.unsplash.com/photo-1470847355775-e0e3c35a9a2c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1825&q=80"
