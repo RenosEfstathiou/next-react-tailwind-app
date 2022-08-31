@@ -5,17 +5,17 @@ import { Ingredients } from '../types'
 const IngredientsList: React.FC<{ ingredients: Ingredients[] }> = ({ ingredients }) => {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-md">
-      <ul role="list" className="divide-y divide-gray-200l">
+      <ul role="list" className="divide-y divide-gray-200">
         {ingredients.map((ingredient) => (
           <li key={ingredient.id}>
             <div className="flex items-center px-4 py-4 sm:px-6">
-              <div className="flex min-w-0 flex-1 items-center">
-                <div className="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+              <div className="flex min-w-0 flex-1 items-center ">
+                <div className="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4 items-center ">
                   <div>
-                    <p className="truncate text-sm font-medium text-indigo-600">{ingredient.name}</p>
+                    <p className="text-sm font-medium text-indigo-600">{ingredient.name}</p>
                   </div>
 
-                  <div className="">
+                  <div>
                     <div>
                       <p className="text-sm text-gray-900">
                         {ingredient.measure}

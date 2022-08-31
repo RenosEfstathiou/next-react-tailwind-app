@@ -42,7 +42,7 @@ const RecipeDetailView: NextPage<{ meal: MealDetails }> = ({ meal }) => {
 
                                     <div className="mt-6 space-y-8 border-t border-b border-gray-200 py-6">
                                         <div>
-                                            <h2 className="text-sm font-medium text-gray-500">Tags</h2>
+                                            <h2 className="text-xl font-bold">Tags:</h2>
                                             <ul role="list" className="mt-2 leading-8">
                                                 <li className="inline">
                                                     <div className="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5">
