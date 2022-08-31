@@ -26,7 +26,7 @@ const MealCard = ({ meal }: { meal: Meal }) => {
                 <Link href={`/meals/${meal.idMeal}`}>
                     <button
                         type="button"
-                        className="rounded-md border border-indigo-300 bg-white px-4 py-2 text-sm font-medium text-indigo-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="rounded-md border border-indigo-300 bg-white px-4 py-2 text-sm font-medium text-indigo-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-indigo-500"
                     >
                         View Recipe
                     </button>

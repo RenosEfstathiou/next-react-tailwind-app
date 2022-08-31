@@ -17,12 +17,12 @@ const Home: NextPage<{ categories: Category[] }> = ({ categories }) => {
           <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
             <div className="px-4 sm:px-8 lg:w-1/2 xl:pr-16">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                <span className="block xl:inline">Welcome to Recipe </span>
-                <span className="block text-indigo-600 xl:inline">a recipe finding app.</span>
+                <span className="block xl:inline">Welcome to Recipe, </span>
+                <span className="block text-indigo-600 inline">a recipe finding app.</span>
               </h1>
 
               <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                You can search for your desired meal through our categories below or search for it my meal name using our search bar!
+                You can search for your desired meal through our categories below or search for it by meal name using our search bar!
               </p>
 
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
@@ -62,7 +62,7 @@ const Home: NextPage<{ categories: Category[] }> = ({ categories }) => {
           </div>
 
           <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
-            <Image src="/home_illustration.jpg" width={100} height={100} layout='responsive' objectFit='fill' />
+            <Image src="/home_illustration.jpg" width={100} height={100} layout='responsive' objectFit="contain" />
           </div>
         </main>
 

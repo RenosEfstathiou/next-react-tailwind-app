@@ -15,7 +15,7 @@ const CategoryMeals: NextPage<{ meals: Meal[] }> = ({ meals }) => {
             <div className="container mx-auto">
                 <h1 className="text-4xl text-center my-3">{id} Meals</h1>
 
-                <div className='mx-auto max-w-2xl px-4 sm:py-12 sm:px-6 lg:max-w-7xl lg:px-8'>
+                <div className='mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
                     <div className="mt-4 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                         {meals && meals.map(meal => <MealCard key={meal.idMeal} meal={meal} />)}
                     </div>
