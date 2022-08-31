@@ -5,7 +5,7 @@ import { Ingredients } from '../types'
 const IngredientsList: React.FC<{ ingredients: Ingredients[] }> = ({ ingredients }) => {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-md">
-      <ul role="list" className="divide-y divide-gray-200">
+      <ul role="list" className="divide-y divide-gray-200l">
         {ingredients.map((ingredient) => (
           <li key={ingredient.id}>
             <div className="flex items-center px-4 py-4 sm:px-6">
@@ -14,7 +14,8 @@ const IngredientsList: React.FC<{ ingredients: Ingredients[] }> = ({ ingredients
                   <div>
                     <p className="truncate text-sm font-medium text-indigo-600">{ingredient.name}</p>
                   </div>
-                  <div className="hidden md:block">
+
+                  <div className="">
                     <div>
                       <p className="text-sm text-gray-900">
                         {ingredient.measure}
@@ -23,17 +24,17 @@ const IngredientsList: React.FC<{ ingredients: Ingredients[] }> = ({ ingredients
                   </div>
                 </div>
               </div>
+
               <div>
                 <input
                   id={`${ingredient.id}`}
                   aria-describedby="ingredient-checkbox"
-                  name="acquiredIngredients"
+                  name="ingredients"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                 />
               </div>
             </div>
-
           </li>
         ))}
       </ul>

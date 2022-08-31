@@ -24,7 +24,7 @@ const RecipeDetailView: NextPage<{ meal: MealDetails }> = ({ meal }) => {
                                     <div className="mt-4 flex space-x-3 md:mt-0">
                                         <button
                                             type="button"
-                                            className="inline-flex justify-center rounded-md border border-yellow-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                            className="inline-flex justify-center rounded-md border border-yellow-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 active:bg-yellow-100"
                                         >
                                             <StarIconOutlined className="-ml-1 mr-2 h-5 w-5 text-yellow-400" aria-hidden="true" />
                                             <span>Favorite</span>
@@ -81,13 +81,13 @@ const RecipeDetailView: NextPage<{ meal: MealDetails }> = ({ meal }) => {
 
                     </div>
                     <aside className="hidden xl:block xl:pl-8">
-                        <h2 className="text-2xl font-bold mb-2">Ingredients:</h2>
+                        <h2 className="text-xl font-medium mb-2">Ingredients:</h2>
                         <div className="space-y-5">
                             <IngredientsList ingredients={meal.ingredients} />
                         </div>
                         <div className="mt-6 space-y-8 border-t border-gray-200 py-6">
                             <div>
-                                <h2 className="text-sm font-medium text-gray-500">Tags</h2>
+                                <h2 className="text-xl font-medium mb-2">Tags:</h2>
                                 <ul role="list" className="mt-2 leading-8">
                                     <li className="inline">
                                         <div className="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5">
